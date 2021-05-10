@@ -4,7 +4,7 @@
       <Header @performSearch="searchFilm" /> 
     </div>
     <div class="main">
-      <Main/>
+      <Main v-for = "(film, index) in  films" :key ='index' :info ="film"/>
     </div>
   </div>
 </template>
@@ -22,7 +22,6 @@ export default {
   data(){
     return{
       films:[],
-      textRicerca:'',
       urlFilm:'https://api.themoviedb.org/3/search/movie?api_key=257625abe3fa656fc29461483ca0c0aa&query=fantozzi&language=it-IT'
     }
   },
@@ -31,15 +30,16 @@ export default {
     searchFilm(text){
       axios.get('https://api.themoviedb.org/3/search/movie?api_key=257625abe3fa656fc29461483ca0c0aa&',
       {
-        params: 
-        {
-        query: text,
-        language:'it-IT'
+        params:{
+          query: text,
+          language:'it-IT'
         }
       })
       .then(res=>{
           console.log(res.data.results);
-          this.textRicerca=text
+          this.films=res.data.results;
+          console.log(this.films)
+          
       })
       .catch(err=>{
           console.log('Errore',err);

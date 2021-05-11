@@ -19,7 +19,15 @@
             <img src="@/assets/it.png" alt="">
         </div>
         <!-- <p>Voto:{{info.vote_average}}</p> -->
-        <div class="stelle" v-show="Math.ceil(info.vote_average)<=2">
+        <div class="stelle" v-show="info.vote_average==0">
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+        </div>
+
+        <div class="stelle" v-show="Math.ceil(info.vote_average)==2">
             <i class="fas fa-star"></i>
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>

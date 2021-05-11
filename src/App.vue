@@ -7,7 +7,7 @@
       <h1>Film</h1>
       <Films v-for = "(film, index) in  films" :key ='index' :info ="film"/>
       <h1>Serie TV</h1>
-      <Serie v-for = "(item, indice) in  serie" :key ="indice+'i'" :info ="item"/>
+      <Serie v-for = "(item, indice) in  serie" :key ="indice +'i'" :info ="item"/>
     </div>
   </div>
 </template>
@@ -36,43 +36,6 @@ export default {
   
   methods:{
     searchFilm(text){
-      /* //cerca film
-       axios.get('https://api.themoviedb.org/3/search/movie?api_key=257625abe3fa656fc29461483ca0c0aa&',
-      {
-        params:{
-          query: text,
-          language:'it-IT'
-        }
-      })
-      .then(res=>{
-          console.log(res.data.results);
-          this.films=res.data.results;
-          //console.log(this.films)
-          
-      })
-      .catch(err=>{
-          console.log('Errore',err);
-      })
-      
-    },
-    //cerca serie
-    searchSerie(text){ 
-        axios.get('https://api.themoviedb.org/3/search/tv?api_key=257625abe3fa656fc29461483ca0c0aa&',
-      {
-        params:{
-          query: text,
-          language:'it-IT'
-        }
-      })
-      .then(res=>{
-          console.log(res.data.results);
-          this.serie=res.data.results;
-          //console.log(this.serie)
-          
-      })
-      .catch(err=>{
-          console.log('Errore',err);
-      })  */
        Promise.all([
         axios.get('https://api.themoviedb.org/3/search/tv?api_key=257625abe3fa656fc29461483ca0c0aa&',
         {

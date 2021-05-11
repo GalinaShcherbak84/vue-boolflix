@@ -3,7 +3,18 @@
     <div class="film">
         <h2>{{info.title}}</h2>
         <h3>{{info.original_title}}</h3>
-        <p>{{info.original_language}}</p>
+        <div class="lingua" v-show="info.original_language !=='it'&& info.original_language !=='en'">
+            <p>Lingua originale:</p>
+            <p>{{info.original_language}}</p>
+        </div>
+        <div class="lingua" v-show="info.original_language ==='en'">
+            <p>Lingua originale:</p>
+            <img src="@/assets/en.png" alt="">
+        </div>
+        <div class="lingua" v-show="info.original_language ==='it'">
+            <p>Lingua originale:</p>
+            <img src="@/assets/it.png" alt="">
+        </div>
         <p>{{info.vote_average}}</p>
     </div>
 </div>
@@ -19,5 +30,13 @@ export default {
 <style scoped lang="scss">
 .film{
     padding:10px;
+    img{
+        width: 50px;
+        margin-left: 5px;
+    }
+    .lingua{
+        display: flex;
+        align-items: center;
+    }
 }
 </style>

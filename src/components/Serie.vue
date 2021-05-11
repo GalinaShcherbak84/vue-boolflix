@@ -1,21 +1,23 @@
 <template>
-    <div class="film">
-        <h1>{{info.title}}</h1>
-        <h2>{{info.original_title}}</h2>
+<div class="container">
+    <div class="serie">
+        <h2>{{info.name}}</h2>
+        <h3>{{info.original_name}}</h3>
         <p>{{info.original_language}}</p>
         <p>{{info.vote_average}}</p>
     </div>
+</div>
 </template>
 
 <script>
 export default {
-    nome:'Main',
+    nome:'Serie',
     props:['info'],
 }
 </script>
 
 <style scoped lang="scss">
-.film{
+.serie{
     padding:10px;
 }
 </style>

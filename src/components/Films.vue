@@ -1,5 +1,8 @@
 <template>
 <div class="container">
+    <div class="img">
+        <img :src="`https://image.tmdb.org/t/p/w300${info.backdrop_path}`" alt="">
+    </div>
     <div class="film">
         <h2>{{info.title}}</h2>
         <h3>{{info.original_title}}</h3>

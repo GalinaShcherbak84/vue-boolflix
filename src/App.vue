@@ -32,36 +32,42 @@ export default {
   
   methods:{
     searchFilm(text){
-       Promise.all([
+      if(text !== ''){
+        Promise.all([
         axios.get('https://api.themoviedb.org/3/search/tv?api_key=257625abe3fa656fc29461483ca0c0aa&',
-        {
-          params:{
-            query: text,
-            language:'it-IT'
-          }
-        }),
+          {
+            params:{
+              query: text,
+              language:'it-IT'
+            }
+          }),
         axios.get('https://api.themoviedb.org/3/search/movie?api_key=257625abe3fa656fc29461483ca0c0aa&',
-        {
-          params:{
-            query: text,
-            language:'it-IT'
-          }
-        })
-      ]).then(([serie, film])=>{
+          {
+            params:{
+              query: text,
+              language:'it-IT'
+            }
+          })
+        ]).then(([serie, film])=>{
           console.log('film', film.data.results);
           console.log('serie',serie.data.results)
           this.serie=serie.data.results;
           this.films=film.data.results;
           
           
-      }).catch(err=>{
+        }).catch(err=>{
           console.log('Errore',err);
-      })  
+        })  
+      }
     }
   }
 }
 </script>
 
 <style lang="scss">
-
+  *{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+  }
 </style>

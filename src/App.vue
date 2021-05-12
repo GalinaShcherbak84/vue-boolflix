@@ -4,10 +4,7 @@
       <Header @performSearch="searchFilm"/> 
     </div>
     <div class="main">
-      <h1>Film</h1>
-      <Films v-for = "(film, index) in  films" :key ='index' :info ="film"/>
-      <h1>Serie TV</h1>
-      <Serie v-for = "(item, indice) in  serie" :key ="indice +'i'" :info ="item"/>
+        <Content :series="serie" :films="films"/>
     </div>
   </div>
 </template>
@@ -15,14 +12,13 @@
 <script>
 import axios from 'axios';
 import Header from "@/components/Header.vue"
-import Films from "@/components/Films.vue"
-import Serie from "@/components/Serie.vue"
+import Content from "@/components/Content.vue"
+
 export default {
   name: 'App',
   components: {
     Header,
-    Films,
-    Serie
+    Content,
   },
   data(){
     return{

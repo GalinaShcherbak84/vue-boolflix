@@ -1,12 +1,9 @@
 <template>
-<div class="container">
-    <div class="img">
-        <img :src="`https://image.tmdb.org/t/p/w300${info.backdrop_path}`" alt="">
-    </div>
-    <div class="film">
-        <h2>{{info.title}}</h2>
-        <h3>{{info.original_title}}</h3>
-        <div class="lingua" v-show="info.original_language !=='it'&& info.original_language !=='en'">
+    <div class="container">
+      <img :src="`https://image.tmdb.org/t/p/w300${info.backdrop_path}`" alt="">
+      <h2>{{info.title?info.title:info.name}}</h2>
+      <h3>{{info.original_title?info.original_title:info.original_name}}</h3>
+      <div class="lingua" v-show="info.original_language !=='it'&& info.original_language !=='en'">
             <p>Lingua originale:</p>
             <p>{{info.original_language}}</p>
         </div>
@@ -18,15 +15,14 @@
             <p>Lingua originale:</p>
             <img src="@/assets/it.png" alt="">
         </div>
-        <!-- <p>Voto:{{info.vote_average}}</p> -->
-        <div class="stelle" v-show="info.vote_average==0">
+      <div class="stelle" v-show="info.vote_average==0">
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>
         </div>
-        <div class="stelle" v-show="Math.ceil(info.vote_average)==2">
+        <div class="stelle" v-show="Math.ceil(info.vote_average)<2 && Math.ceil(info.vote_average)>0">
             <i class="fas fa-star"></i>
             <i class="far fa-star"></i>
             <i class="far fa-star"></i>
@@ -61,37 +57,34 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
         </div> 
-
-
     </div>
-</div>
 </template>
 
 <script>
 export default {
-    nome:'Films',
+    nome:'Card',
     props:['info'],
     data(){
         return{
-            
+           
         }
     },
     methods:{
-        
-    }
+            
+    } 
 }
 </script>
 
 <style scoped lang="scss">
-.film{
+.container{
     padding:10px;
-    img{
-        width: 50px;
-        margin-left: 5px;
-    }
     .lingua{
         display: flex;
         align-items: center;
+        img{
+        width: 50px;
+        margin-left: 5px;
+    }
     }
 }
 </style>

@@ -21,28 +21,10 @@
                 <p>Lingua originale:</p>
                 <img src="@/assets/it.png" alt="">
             </div>
-            <div class="stelle" v-show="info.vote_average==0">
-                <i class="far fa-star" v-for="(n,index) in 5" :key ="index + 'a'" ></i>
+            <div class="stelle">
+                <i class="fas fa-star" v-for="n in getStars(info.vote_average)" :key="`full-${n}`"></i>
+                <i class="far fa-star" v-for="n in 5-getStars(info.vote_average)" :key="`empty-${n}`"></i>
             </div>
-            <div class="stelle" v-show="Math.ceil(info.vote_average)<2 && Math.ceil(info.vote_average)>0">
-                <i class="fas fa-star"></i>
-                <i class="far fa-star" v-for="(n,index) in 4" :key ="index + 'b'"></i>
-            </div>
-            <div class="stelle" v-show="Math.ceil(info.vote_average)<=4 && Math.ceil(info.vote_average)>2">
-                <i class="fas fa-star" v-for="(n,index) in 2" :key ="index + 'c'"></i>
-                <i class="far fa-star" v-for="(n,index) in 3" :key ="index + 'd'"></i>
-            </div>
-            <div class="stelle" v-show="Math.ceil(info.vote_average)<=6 && Math.ceil(info.vote_average)>4 ">
-                <i class="fas fa-star" v-for="(n,index) in 3" :key ="index + 'e'"></i>
-                <i class="far fa-star" v-for="(n,index) in 2" :key ="index + 'f'"></i>
-            </div>
-            <div class="stelle" v-show="Math.ceil(info.vote_average)<=8 && Math.ceil(info.vote_average)>6">
-                <i class="fas fa-star" v-for="(n,index) in 4" :key ="index + 'g'"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="stelle" v-show="Math.ceil(info.vote_average)<=10 && Math.ceil(info.vote_average)>8">
-                <i class="fas fa-star" v-for="(n,index) in 5" :key ="index + 'h'"></i>
-            </div> 
         </div>
         <div v-show="info.overview !=='' " class="testo"> 
           <p>{{info.overview}}</p>
@@ -65,7 +47,9 @@ export default {
         }
     },
     methods:{
-            
+       getStars(voto){
+           return Math.ceil(voto/2);
+       }     
     } 
 }
 </script>
@@ -75,13 +59,13 @@ export default {
 position: relative;
 text-align: center;
 width: 160px;
-height: 240px;
+height: 300px;
 background: darkgray;
 color:white;
 margin:20px 10px;
     .sfondo{
     width: 160px;
-    height: 240px; 
+    height: 300px; 
     object-fit: cover;
      object-position: center;
     position: relative; 
@@ -89,7 +73,7 @@ margin:20px 10px;
     }
     .scuro{
     width: 160px;
-    height: 240px;
+    height: 300px;
     background: rgba($color: #000000, $alpha:0.4); 
     position: absolute;
     top:0px;
@@ -105,22 +89,28 @@ margin:20px 10px;
     top:0px;
     left:0px;
     width: 160px;
-    height: 240px; 
+    height: 300px; 
     z-index: 4;
     padding: 10px;
         
         h1{
-            font-size: 20px;
+            font-size: 18px;
            
         }
         h3{
             font-size: 16px;
             
         }
+        p{
+            font-size: 14px;
+        }
         
         .lingua{
+            display: flex;
+            justify-content: center;
             p{
-              margin-bottom: 5px;  
+              font-size: 12px; 
+              margin-right: 4px;
             }
             img{
             width: 30px;
@@ -140,7 +130,7 @@ margin:20px 10px;
         top:0px;
         left:0px;
         width: 160px;
-        height: 240px; 
+        height: 300px; 
         background: black;
         z-index: 5;
         color:white;

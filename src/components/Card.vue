@@ -55,12 +55,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import'@/components/vars/vars.scss';
 .container{
 position: relative;
 text-align: center;
 width: 160px;
 height: 300px;
-background: darkgray;
+background: $mycolorGrey;
 color:white;
 margin:20px 10px;
     .sfondo{
@@ -74,7 +75,7 @@ margin:20px 10px;
     .scuro{
     width: 160px;
     height: 300px;
-    background: rgba($color: #000000, $alpha:0.4); 
+    background: rgba($color: $mycolor, $alpha:0.4); 
     position: absolute;
     top:0px;
     left:0px;
@@ -117,7 +118,7 @@ margin:20px 10px;
             }
         }
         .stelle{
-            color:yellow;
+            color:$mycolorYellow;
             font-size: 14px;
             i{
                 padding:0 2px;
@@ -131,14 +132,14 @@ margin:20px 10px;
         left:0px;
         width: 160px;
         height: 300px; 
-        background: black;
+        background: $mycolor;
         z-index: 5;
         color:white;
         overflow: auto;
         opacity: 0;
         transition: opacity .5s;
             button{
-                background: #d81a27;
+                background: $mycolorRed;
                 border: none;
                 padding:5px;
                 border-radius: 5px;

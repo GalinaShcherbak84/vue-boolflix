@@ -28,18 +28,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import'@/components/vars/vars.scss';
 main{
 text-align: center;
 color:white;
 padding-top: 80px;
 overflow:auto;
   section{
-  background: black;
+  background: $mycolor;
   width: 100vw;
   padding-bottom: 10px;
     h1{
     font-size: 36px;
-    background: #d81a27;
+    background: $mycolorRed;
     }
     .contcads{
     display: flex;

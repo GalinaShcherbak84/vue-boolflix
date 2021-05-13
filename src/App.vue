@@ -65,6 +65,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import'@/components/vars/vars.scss';
 @import '~@fontsource/roboto/index.css';
 @import '~@fontsource/roboto/700.css';
   *{
@@ -75,7 +76,7 @@ export default {
   }
   #app{
     min-height:100vh;
-    background: black;
+    background: $mycolor;
     position: relative;
   }
 </style>

@@ -23,11 +23,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import'@/components/vars/vars.scss';
     .cont{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: darkgray;
+        background: $mycolorGrey;
         padding:0 30px;
         position: fixed;
         top:0;
@@ -50,7 +51,7 @@ export default {
             outline: none;
             }
             button{
-            background: #d81a27;
+            background: $mycolorRed;
             border: none;
             padding:5px 10px;
             border-radius: 5px;

@@ -1,9 +1,10 @@
 <template>
     <div class="cont">
+        <!-- logo -->
         <div class="logo">
             <img src="@/assets/boolflix.png" alt="">
         </div>
-    
+        <!-- ricerca -->
         <div class="form">
             <input type="text" placeholder="Cerca il film o la serie TV." v-model="ricerca">
             <button @click="$emit('performSearch', ricerca)">Invio</button>
@@ -16,7 +17,7 @@ export default {
     nome:'Header',
     data(){
         return{
-            ricerca:'',
+            ricerca:'', //v-model
         }
     }
 }
@@ -36,9 +37,11 @@ export default {
         width: 100%;
         height: 80px;
         z-index: 6;
+        /* logo */
         img{
             width: 100px;
         }
+        /* ricerca */
         .form{
             display: flex;
             align-items: center;

@@ -31,6 +31,7 @@ export default {
   },
   
   methods:{
+    /* chiamata axios */
     searchFilm(text){
       if(text !== ''){
         Promise.all([

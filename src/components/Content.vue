@@ -1,12 +1,13 @@
 <template>
   <main>
-    <section >
+    <!-- section film -->
+    <section>
       <h1 id="first">Film</h1>
-      <div class="contcads">
+      <div class="contcads"> 
         <Card v-for="(film, index) in films" :key=index :info="film" />
       </div>
     </section>
-    
+    <!-- section serie -->
     <section >
       <h1>Serie</h1>
       <div class="contcads">

@@ -65,9 +65,17 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~@fontsource/roboto/index.css';
+@import '~@fontsource/roboto/700.css';
   *{
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  #app{
+    min-height:100vh;
+    background: black;
+    position: relative;
   }
 </style>

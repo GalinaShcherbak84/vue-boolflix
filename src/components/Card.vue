@@ -43,9 +43,15 @@
             <div class="stelle" v-show="Math.ceil(info.vote_average)<=10 && Math.ceil(info.vote_average)>8">
                 <i class="fas fa-star" v-for="(n,index) in 5" :key ="index + 'h'"></i>
             </div> 
-      </div>
-      <div v-show="info.overview !=='' " class="testo">{{info.overview}}</div>
-      <div v-show="info.overview ==='' " class="testo"><p>Non ci sono informazioni su questo film.</p></div>
+        </div>
+        <div v-show="info.overview !=='' " class="testo"> 
+          <p>{{info.overview}}</p>
+          <button>Guardare</button>
+        </div>
+        <div v-show="info.overview ==='' " class="testo1">
+          <p>Non ci sono informazioni su questo film.</p>
+          <button>Guardare</button>
+        </div>
     </div>
 </template>
 
@@ -68,23 +74,23 @@ export default {
 .container{
 position: relative;
 text-align: center;
-width: 200px;
-height: 320px;
+width: 160px;
+height: 240px;
 background: darkgray;
 color:white;
-margin:5px;
+margin:20px 10px;
     .sfondo{
-    width: 200px;
-    height: 320px; 
+    width: 160px;
+    height: 240px; 
     object-fit: cover;
      object-position: center;
     position: relative; 
     z-index: 2; 
     }
     .scuro{
-    width: 200px;
-    height: 320px;
-     background: rgba($color: #000000, $alpha:0.2); 
+    width: 160px;
+    height: 240px;
+    background: rgba($color: #000000, $alpha:0.4); 
     position: absolute;
     top:0px;
     left:0px;
@@ -98,51 +104,70 @@ margin:5px;
     position: absolute;
     top:0px;
     left:0px;
-    width: 200px;
-    height: 320px; 
+    width: 160px;
+    height: 240px; 
     z-index: 4;
     padding: 10px;
         
         h1{
-            font-size: 32px;
-            margin-bottom: 10px;
+            font-size: 20px;
+           
         }
         h3{
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 16px;
+            
         }
         
         .lingua{
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+            p{
+              margin-bottom: 5px;  
+            }
             img{
             width: 30px;
-            margin-left: 5px;
             }
         }
         .stelle{
             color:yellow;
+            font-size: 14px;
+            i{
+                padding:0 2px;
+            }
         }
     }
-    .testo{
+    .testo,
+    .testo1{
         position: absolute;
         top:0px;
         left:0px;
-        width: 200px;
-        height: 320px; 
+        width: 160px;
+        height: 240px; 
         background: black;
         z-index: 5;
         color:white;
-        padding: 20px;
         overflow: auto;
         opacity: 0;
         transition: opacity .5s;
+            button{
+                background: #d81a27;
+                border: none;
+                padding:5px;
+                border-radius: 5px;
+                margin-top:10px;
+                color:white;
+                font-weight: 700px;
+                cursor: pointer;
+            }
+    }
+    .testo1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     
 }
-.container:hover .testo{
+.container:hover .testo,
+.container:hover .testo1{
         opacity: 100%;
     }
 </style>

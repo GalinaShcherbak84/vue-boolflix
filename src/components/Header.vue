@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="cont">
         <div class="logo">
             <img src="@/assets/boolflix.png" alt="">
         </div>
@@ -23,11 +23,42 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .container{
+    .cont{
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        background: darkgray;
+        padding:0 30px;
+        position: fixed;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 80px;
+        z-index: 6;
         img{
             width: 100px;
         }
+        .form{
+            display: flex;
+            align-items: center;
+            input{
+            border:none;
+            padding:5px 10px;
+            border-radius: 5px;
+            width: 240px;
+            margin-right: 10px;
+            outline: none;
+            }
+            button{
+            background: #d81a27;
+            border: none;
+            padding:5px 10px;
+            border-radius: 5px;
+            color:white;
+            font-weight: 700px;
+            cursor: pointer;
+            }
+        }
+        
     }
 </style>
